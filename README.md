@@ -60,20 +60,20 @@ curl localhost/ip-validation?value=255.255.0.0
 ## What do you need to do?
 
 ### CI/CD Pipeline
-- [ ] Jenkins
-    - [ ] Webhook
+- [X] Jenkins
+    - [X] Webhook
 - [ ] Sonar Qube
     - [ ] (Plus) Linting
     - [ ] Static Code Analysis
-- [ ] Testing
-    - [ ] Unit testing
+- [X] Testing
+    - [X] Unit testing
     - [ ] Functional Tesging(plus)
 - [ ] (Plus) Docker
 - [ ] (Plus) Seguridad
 - [ ] (Plus) Fix Code
 
 ### Techincal Diagram 
-- [ ] Processes
+- [X] Processes
 - [X] Information Flow between different technologies
 
 ### Task Organization
