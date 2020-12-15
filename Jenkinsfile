@@ -8,7 +8,8 @@ cd cidr_convert_api/go/
 pwd
 ls
 goop install
-goop go run api.go convert.go'''
+#goop go run api.go convert.go
+go build api.go convert.go'''
       }
     }
 
