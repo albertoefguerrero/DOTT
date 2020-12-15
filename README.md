@@ -74,7 +74,7 @@ curl localhost/ip-validation?value=255.255.0.0
 
 ### Techincal Diagram 
 - [ ] Processes
-- [ ] Information Flow between different technologies
+- [X] Information Flow between different technologies
 
 ### Task Organization
 - [X] Kanban (Trello.com)
