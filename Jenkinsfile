@@ -3,9 +3,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''echo "hello world!"
+        sh '''echo "Starting Pipeline"
 pwd
-ls'''
+ls
+cd cidr_convert_api/go/'''
       }
     }
 
