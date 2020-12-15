@@ -9,7 +9,7 @@ pwd
 ls
 goop install
 #goop go run api.go convert.go
-go build api.go convert.go'''
+'''
       }
     }
 
@@ -22,7 +22,8 @@ go build api.go convert.go'''
 
     stage('Testing') {
       steps {
-        sh 'echo "Testing"'
+        sh '''echo "Testing"
+goop go test'''
       }
     }
 
