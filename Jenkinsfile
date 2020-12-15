@@ -6,7 +6,8 @@ pipeline {
         sh '''echo "Starting Pipeline"
 cd cidr_convert_api/go/
 pwd
-ls'''
+ls
+sudo yum -y update'''
       }
     }
 
