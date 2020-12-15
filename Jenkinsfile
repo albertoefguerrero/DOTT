@@ -23,6 +23,7 @@ goop install
     stage('Testing') {
       steps {
         sh '''echo "Testing"
+cd cidr_convert_api/go/
 goop go test'''
       }
     }
