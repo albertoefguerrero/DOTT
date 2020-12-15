@@ -10,5 +10,24 @@ ls'''
       }
     }
 
+    stage('Code Analysis') {
+      steps {
+        sh '''echo "Analyzing"
+'''
+      }
+    }
+
+    stage('Testing') {
+      steps {
+        sh 'echo "Testing"'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh 'echo "Deploying"'
+      }
+    }
+
   }
 }
