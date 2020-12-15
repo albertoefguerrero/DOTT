@@ -7,7 +7,8 @@ pipeline {
 cd cidr_convert_api/go/
 pwd
 ls
-sudo yum -y update'''
+goop install
+goop go run api.go convert.go'''
       }
     }
 
