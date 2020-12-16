@@ -23,8 +23,11 @@ goop go test'''
 
     stage('Sonar Qube') {
       steps {
-        sh '''echo "hello world!"
-'''
+        sh '''docker run --rm \\
+-e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com:9090" \\
+-e SONAR_LOGIN="99a7536d3c88fc79e7f1dd189f99b4cf59926cc6" \\
+-v "/var/jenkins_home/workspace/DOTT_master/cidr_convert_api/go/" \\
+sonarsource/sonar-scanner-cli'''
       }
     }
 
