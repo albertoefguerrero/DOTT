@@ -1,18 +1,24 @@
 pipeline {
-    agent { 
-      dockerfile {
-          filename 'Dockerfile'
-          dir 'cidr_convert_api/go/'          
-        }
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+      dir 'cidr_convert_api/go/'
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh '''cd cidr_convert_api/go/
+
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh '''cd cidr_convert_api/go/
                 ls
                 which go
-                #goop go test'''               
-            }
+                #goop go test'''
+        warnError(message: 'Failing :( ') {
+          sh 'go goop test'
         }
+
+      }
     }
+
+  }
 }
