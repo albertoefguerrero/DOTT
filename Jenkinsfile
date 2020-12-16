@@ -1,12 +1,12 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'Dockerfile'
+      filename 'cidr_convert_api/go/Dockerfile'
     }
 
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh '''ls
 pwd'''
