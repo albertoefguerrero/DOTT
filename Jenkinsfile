@@ -2,8 +2,7 @@ pipeline {
     agent { 
       dockerfile {
           filename 'Dockerfile'
-          dir 'cidr_convert_api/go/'
-          label 'dott-go'
+          dir 'cidr_convert_api/go/'          
         }
     }
     stages {
