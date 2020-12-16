@@ -14,10 +14,7 @@ goop install
     }
 
     stage('Code Analysis') {
-      agent { 
-        dockerfile { 
-          dir 'cidr_convert_api/go/' 
-        }
+      agent { dockerfile { dir 'cidr_convert_api/go/' }
         steps {
                 sh 'go version'
             }
