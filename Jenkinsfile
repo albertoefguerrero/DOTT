@@ -21,5 +21,12 @@ goop go test'''
       }
     }
 
+    stage('Sonar Qube') {
+      steps {
+        sh '''echo "hello world!"
+'''
+      }
+    }
+
   }
 }
