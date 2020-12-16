@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh '''pwd
                 ls'''
-                sh 'go version'
+                sh 'goop go test'
             }
         }
     }
