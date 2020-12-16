@@ -9,14 +9,15 @@ pipeline {
   stages {
     stage('Test') {
       steps {
+        warnError(message: 'Failing :( ') {
+          sh '''cd cidr_convert_api/go/
+go goop test'''
+        }
+
         sh '''cd cidr_convert_api/go/
                 ls
                 which go
                 #goop go test'''
-        warnError(message: 'Failing :( ') {
-          sh 'go goop test'
-        }
-
       }
     }
 
