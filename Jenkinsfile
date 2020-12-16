@@ -1,7 +1,8 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'cidr_convert_api/go/Dockerfile'
+      filename 'Dockerfile'
+      dir 'cidr_convert_api/go/'
     }
 
   }
@@ -13,8 +14,5 @@ pwd'''
       }
     }
 
-  }
-  environment {
-    dir = 'cidr_convert_api/go/'
   }
 }
