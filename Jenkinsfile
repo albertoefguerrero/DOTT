@@ -3,6 +3,7 @@ pipeline {
       dockerfile {
           filename 'Dockerfile'
           dir 'cidr_convert_api/go/'
+          label 'dott-go'
         }
     }
     stages {
