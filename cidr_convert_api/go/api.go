@@ -63,5 +63,5 @@ func main() {
 	router.HandleFunc("/mask-to-cidr", routeGetMaskToCidr).Methods("GET")
 	router.HandleFunc("/ip-validation", routeIpv4Validation).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(":8001", router))
 }
