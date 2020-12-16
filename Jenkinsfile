@@ -11,7 +11,7 @@ pipeline {
                 sh '''cd cidr_convert_api/go/
                 ls
                 which go
-                goop go test'''               
+                #goop go test'''               
             }
         }
     }
