@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh '''cd cidr_convert_api/go/
                 ls
+                which go
                 goop go test'''               
             }
         }
