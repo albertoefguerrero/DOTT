@@ -28,5 +28,11 @@ goop go test'''
       }
     }
 
+    stage('Run') {
+      steps {
+        sh 'goop go run api.go convert.go'
+      }
+    }
+
   }
 }
