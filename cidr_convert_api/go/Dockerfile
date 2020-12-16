@@ -13,3 +13,4 @@ COPY . .
 CMD ["ash", "-c", "goop go run api.go convert.go"]
 # docker build -t gom .
 # docker run -ti -p 8000:8000 gom
+EXPOSE 8000
