@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh '''pwd
-                ls'''
-                sh 'goop go test'
+                sh '''cd cidr_convert_api/go/
+                ls
+                goop go test'''               
             }
         }
     }
