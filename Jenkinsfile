@@ -1,16 +1,15 @@
-pipeline {  
-  stages {
-    stage ('Build') {
-      agent {
-        dockerfile {
+pipeline {
+    agent { 
+      dockerfile {
           filename 'Dockerfile'
           dir 'cidr_convert_api/go/'
         }
-        steps {
-          sh '''ls
-          pwd'''
+    stages {
+        stage('Test') {
+            steps {
+                sh 'ls'
+                sh 'go version'
+            }
         }
-      }
     }
-  }
 }
