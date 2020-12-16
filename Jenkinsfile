@@ -31,7 +31,7 @@ goop go test'''
     stage('Run') {
       steps {
         sh '''cd cidr_convert_api/go/
-goop go run api.go convert.go'''
+#goop go run api.go convert.go'''
       }
     }
 
