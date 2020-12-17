@@ -39,7 +39,7 @@ go build'''
       }
       steps {
         sh '''pwd
-ls'''
+ls cidr_convert_api/go/'''
         dir(path: 'cidr_convert_api/go/') {
           sh '''pwd
 ls'''
