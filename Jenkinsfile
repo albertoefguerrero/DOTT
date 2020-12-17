@@ -22,7 +22,9 @@ go get github.com/karmakaze/goop \\
         }
 
         warnError(message: 'Failed :( ') {
-          sh 'go build'
+          sh '''cd cidr_convert_api/go/
+ls
+go build'''
         }
 
       }
