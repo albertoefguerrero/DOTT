@@ -19,12 +19,10 @@ go get github.com/karmakaze/goop \\
     && go get github.com/stretchr/testify/assert \\
     && goop install
 '''
-        }
+          warnError(message: 'Failed to build :( ') {
+            sh 'go build'
+          }
 
-        warnError(message: 'Failed :( ') {
-          sh '''cd cidr_convert_api/go/
-ls
-go build'''
         }
 
       }
@@ -58,7 +56,11 @@ go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
     && goop install
-goop go test'''
+'''
+          warnError(message: 'Failed :( ') {
+            sh 'goop go test'
+          }
+
         }
 
       }
