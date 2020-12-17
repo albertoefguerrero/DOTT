@@ -37,7 +37,8 @@ func TestValidIpv4(t *testing.T) {
 func TestInvalidMaskToCidr(t *testing.T) {
 	assert := assert.New(t)
 
-	assert.Equal("Invalid", maskToCidr("0.0.0.0"))
+	// next test is wrong see second test of TestValidIpv4
+	//assert.Equal("Invalid", maskToCidr("0.0.0.0"))
 	assert.Equal("Invalid", maskToCidr("-1"))
 	assert.Equal("Invalid", maskToCidr("33"))
 }
