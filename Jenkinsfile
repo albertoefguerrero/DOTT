@@ -38,8 +38,11 @@ go build'''
 
       }
       steps {
+        sh '''pwd
+ls'''
         dir(path: 'cidr_convert_api/go/') {
-          sh 'ls'
+          sh '''pwd
+ls'''
           sh '''sonar-scanner \\
   -Dsonar.projectKey=test-key1 \\
   -Dsonar.sources=. \\
