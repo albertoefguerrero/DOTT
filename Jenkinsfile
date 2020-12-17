@@ -31,12 +31,13 @@ go get github.com/karmakaze/goop \\
     stage('Sonar Qube') {
       agent {
         docker {
-          image 'node:14-alpine'
+          image 'sonarsource/sonar-scanner-cli'
         }
 
       }
       steps {
-        sh 'node --version'
+        sh '''go version
+sonar-scanner'''
       }
     }
 
@@ -63,6 +64,12 @@ go get github.com/karmakaze/goop \\
 
         }
 
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh 'echo "hello deploy!"'
       }
     }
 
