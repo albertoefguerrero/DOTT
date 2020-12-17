@@ -38,12 +38,14 @@ go build'''
 
       }
       steps {
-        sh '''sonar-scanner \\
+        dir(path: 'cidr_convert_api/go/') {
+          sh '''sonar-scanner \\
   -Dsonar.projectKey=test-key1 \\
   -Dsonar.sources=. \\
   -Dsonar.host.url=http://albertoefg1c.mylabserver.com \\
-  -Dsonar.login=test
-'''
+  -Dsonar.login=3b02812bc92a98d15ed3cca84b4b8702417c2f69'''
+        }
+
       }
     }
 
