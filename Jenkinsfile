@@ -9,15 +9,16 @@ pipeline {
 
       }
       steps {
-        sh '''apk add --update git
+        sh '''ls
+pwd
+cd cidr_convert_api/go/
+apk add --update git
 apk add build-base
 go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
     && goop install
-
-ls
-pwd'''
+'''
       }
     }
 
