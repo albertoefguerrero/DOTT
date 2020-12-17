@@ -2,7 +2,7 @@ package main
 
 // These functions need to be implemented
 func cidrToMask(value string) string {
-	return value
+	return routeGetCidrToMask(value)
 }
 
 func maskToCidr(value string) string {
