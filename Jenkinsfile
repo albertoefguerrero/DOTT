@@ -61,7 +61,7 @@ apk add build-base
 go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
-    && go get golang.org/x/lint/golint
+    && go get golang.org/x/lint/golint \\
     && goop install
 '''
           warnError(message: 'Failed :( ') {
