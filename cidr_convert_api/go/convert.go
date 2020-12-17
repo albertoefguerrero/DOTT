@@ -1,3 +1,4 @@
+package convert
 // These functions need to be implemented
 func cidrToMask(value string) string {
 	return routeGetCidrToMask(value)
