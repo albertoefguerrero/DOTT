@@ -65,10 +65,10 @@ go get github.com/karmakaze/goop \\
     && goop install
 '''
           warnError(message: 'Failed :( ') {
-            sh 'goop go test'
             sh 'go fmt'
             sh '''golint api.go convert.go convert_test.go
 '''
+            sh 'goop go test'
           }
 
         }
