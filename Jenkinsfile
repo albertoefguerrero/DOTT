@@ -36,8 +36,7 @@ go get github.com/karmakaze/goop \\
 
       }
       steps {
-        sh '''go version
-sonar-scanner'''
+        sh 'sonar-scanner'
       }
     }
 
