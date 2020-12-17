@@ -41,8 +41,9 @@ go build'''
         sh '''sonar-scanner \\
   -Dsonar.projectKey=test-key1 \\
   -Dsonar.sources=. \\
-  -Dsonar.host.url=http://3.22.117.110 \\
-  -Dsonar.login=test'''
+  -Dsonar.host.url=http://albertoefg1c.mylabserver.com \\
+  -Dsonar.login=test
+'''
       }
     }
 
