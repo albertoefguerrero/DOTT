@@ -77,8 +77,24 @@ go get github.com/karmakaze/goop \\
     }
 
     stage('Deploy') {
+      agent {
+        docker {
+          image 'golang:1.15-alpine'
+        }
+
+      }
       steps {
-        sh 'echo "hello deploy!"'
+        dir(path: 'cidr_convert_api/go/') {
+          sh '''apk add --update git
+apk add build-base
+go get github.com/karmakaze/goop \\
+    && go get github.com/gorilla/mux \\
+    && go get github.com/stretchr/testify/assert \\
+    && goop install
+'''
+          sh 'echo "hello world!"'
+        }
+
       }
     }
 
