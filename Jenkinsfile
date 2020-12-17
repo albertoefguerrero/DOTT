@@ -37,7 +37,11 @@ go get github.com/karmakaze/goop \\
 
       }
       steps {
-        sh 'sonar-scanner'
+        sh '''sonar-scanner \\
+  -Dsonar.projectKey=test-key1 \\
+  -Dsonar.sources=. \\
+  -Dsonar.host.url=http://3.22.117.110 \\
+  -Dsonar.login=test'''
       }
     }
 
