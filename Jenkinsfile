@@ -38,11 +38,11 @@ go build'''
 
       }
       steps {
-        sh '''#sonar-scanner \\
-#  -Dsonar.projectKey=test-key1 \\
-#  -Dsonar.sources=. \\
-#  -Dsonar.host.url=http://3.22.117.110 \\
-#  -Dsonar.login=test'''
+        sh '''sonar-scanner \\
+  -Dsonar.projectKey=test-key1 \\
+  -Dsonar.sources=. \\
+  -Dsonar.host.url=http://3.22.117.110 \\
+  -Dsonar.login=test'''
       }
     }
 
