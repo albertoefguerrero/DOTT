@@ -18,7 +18,8 @@ go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
     && goop install
-'''
+
+go build'''
           warnError(message: 'Failed to build :( ') {
             sh 'go build'
           }
@@ -37,11 +38,11 @@ go get github.com/karmakaze/goop \\
 
       }
       steps {
-        sh '''sonar-scanner \\
-  -Dsonar.projectKey=test-key1 \\
-  -Dsonar.sources=. \\
-  -Dsonar.host.url=http://3.22.117.110 \\
-  -Dsonar.login=test'''
+        sh '''#sonar-scanner \\
+#  -Dsonar.projectKey=test-key1 \\
+#  -Dsonar.sources=. \\
+#  -Dsonar.host.url=http://3.22.117.110 \\
+#  -Dsonar.login=test'''
       }
     }
 
@@ -60,10 +61,14 @@ apk add build-base
 go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
+    && go get golang.org/x/lint/golint
     && goop install
 '''
           warnError(message: 'Failed :( ') {
             sh 'goop go test'
+            sh 'go fmt'
+            sh '''golint api.go convert.go convert_test.go
+'''
           }
 
         }
