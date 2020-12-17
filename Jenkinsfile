@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    stage('Back-end') {
+    stage('Build') {
       agent {
         docker {
           image 'golang:1.15-alpine'
@@ -19,10 +19,10 @@ go get github.com/karmakaze/goop \\
     && go get github.com/stretchr/testify/assert \\
     && goop install
 '''
-          catchError(buildResult: 'ERROR', message: 'Found error :( ') {
-            sh 'go build'
-          }
+        }
 
+        warnError(message: 'Failed :( ') {
+          sh 'go build'
         }
 
       }
