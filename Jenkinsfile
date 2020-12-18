@@ -41,15 +41,16 @@ go build'''
         sh '''pwd
 ls cidr_convert_api/go/'''
         dir(path: 'cidr_convert_api/go/') {
+          withCredentials([usernameColonPassword(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
           sh '''pwd
 ls'''
-          sh '''sonar-scanner \\
-  -Dsonar.projectKey=test-key1 \\
-  -Dsonar.sources=. \\
-  -Dsonar.host.url=http://albertoefg1c.mylabserver.com \\
-  -Dsonar.login=3b02812bc92a98d15ed3cca84b4b8702417c2f69'''
+          sh '''sonar-scanner \
+  -Dsonar.projectKey=newjenkins \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://18.223.182.245 \
+  -Dsonar.login="$TOKEN"'''
         }
-
+       }
       }
     }
 
