@@ -24,7 +24,7 @@ go build'''
           warnError(message: 'Failed to build :( ') {
             sh '''ls -lah
 go env GOOS GOARCH
-go build
+go build -ldflags="-extldflags=-static"
 ls -lah
  '''
           }
