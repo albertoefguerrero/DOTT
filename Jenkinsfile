@@ -125,13 +125,13 @@ echo "Exporting token to enable github-release tool"
 export GITHUB_TOKEN=$GTOKEN
 
 echo "Deleting release from github before creating new one"
-#github-release delete --user ${GITHUB_ORGANIZATION} --repo ${GITHUB_REPO} --tag ${VERSION_NAME}
+echo github-release delete --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${VERSION_NAME}
 
 echo "Creating a new release in github"
-#github-release release --user ${GITHUB_ORGANIZATION} --repo ${GITHUB_REPO} --tag ${VERSION_NAME} --name "${VERSION_NAME}"
+echo github-release release --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${VERSION_NAME} --name "${VERSION_NAME}"
 
 echo "Uploading the artifacts into github"
-#github-release upload --user ${GITHUB_ORGANIZATION} --repo ${GITHUB_REPO} --tag ${VERSION_NAME} --name "${PROJECT_NAME}-${VERSION_NAME}.zip" --file artifacts.zip'''
+echo github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${VERSION_NAME} --name "${PROJECT_NAME}-${VERSION_NAME}.zip" --file artifacts.zip'''
         }
        }
       }
@@ -140,5 +140,7 @@ echo "Uploading the artifacts into github"
   }
   environment {
     TOKEN = credentials('sonarlogin')
+    GITHUB_USER = 'albertoefguerrero'
+    GITHUB_REPO = 'DOTT'
   }
 }
