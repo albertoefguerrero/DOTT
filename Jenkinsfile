@@ -33,6 +33,7 @@ go build'''
       agent {
         docker {
           image 'golang:1.15-alpine'
+          args 'args \'-v $HOME/jenkins:/app\''
         }
 
       }
@@ -53,7 +54,7 @@ go get github.com/karmakaze/goop \\
 '''
             sh 'go test'
             sh '''go test -coverprofile=coverage.out
-cp coverage.out ~/'''
+cp coverage.out /app'''
           }
 
         }
@@ -65,7 +66,8 @@ cp coverage.out ~/'''
       agent {
         docker {
           image 'sonarsource/sonar-scanner-cli'
-          args '--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"'
+          args '''--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"
+args \'-v $HOME/jenkins:/app\''''
         }
 
       }
@@ -76,7 +78,7 @@ ls cidr_convert_api/go/'''
           withCredentials(bindings: [string(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
             sh '''pwd
 ls
-cp ~/coverage.out .'''
+cp /app/coverage.out .'''
             sh 'sonar-scanner   -Dsonar.projectKey=newjenkins   -Dsonar.sources=.   -Dsonar.host.url=http://albertoefg1c.mylabserver.com   -Dsonar.login=$TOKEN'
           }
 
