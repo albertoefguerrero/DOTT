@@ -41,9 +41,9 @@ go build'''
         sh '''pwd
 ls cidr_convert_api/go/'''
         dir(path: 'cidr_convert_api/go/') {
-          withCredentials([usernameColonPassword(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
+          withCredentials([string(credentialsId: 'sonarlogin', variable: 'TOKEN')]){
           sh '''pwd
-ls'''
+                ls'''
           sh '''sonar-scanner \
   -Dsonar.projectKey=newjenkins \
   -Dsonar.sources=. \
