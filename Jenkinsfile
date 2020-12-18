@@ -119,7 +119,7 @@ go get github.com/github-release/github-release'''
           sh '''cp /app/artifact.tar.gz .
 ls
 '''
-          sh 'echo ${VERSION_NAME}'
+          sh 'echo ${VERSION_NAME} and $VERSION_NAME'
         }
 
       }
