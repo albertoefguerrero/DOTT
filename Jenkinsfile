@@ -33,7 +33,7 @@ go build'''
       agent {
         docker { image 'sonarsource/sonar-scanner-cli'
           withCredentials([string(credentialsId: 'sonarlogin', variable: 'TOKEN')]){          
-          args '--network host -e SONAR_HOST_URL="http://3.22.117.110/" -e SONAR_LOGIN="$TOKEN" '
+          args '''--network host -e SONAR_HOST_URL="http://3.22.117.110/" -e SONAR_LOGIN="$TOKEN" '''
         }
        }
       }
