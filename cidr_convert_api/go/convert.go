@@ -33,7 +33,7 @@ func maskToCidr(value string) string {
 	// IP to 4 byte
 	addr := ip.To4()
 	// 4 byte to Int
-	cidr, _ :=	net.IPv4Mask(addr[0], addr[1], addr[2], addr[3]).Size()
+	cidr, _ := net.IPv4Mask(addr[0], addr[1], addr[2], addr[3]).Size()
 	// Int to String
 	result = strconv.Itoa(cidr)
 
