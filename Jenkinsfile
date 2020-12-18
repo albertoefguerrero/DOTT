@@ -29,7 +29,7 @@ ls
 
           sh '''ls
 tar -cvzf final-application.tar.gz api
-cp final-application.tar.gz /app
+cp artifact.tar.gz /app
 ls'''
         }
 
@@ -108,19 +108,16 @@ cp /app/coverage.out .'''
       agent {
         docker {
           image 'golang:1.15-alpine'
+          args '-v $HOME/jenkins:/app'
         }
 
       }
       steps {
         dir(path: 'cidr_convert_api/go/') {
           sh '''apk add --update git
-apk add build-base
-go get github.com/karmakaze/goop \\
-    && go get github.com/gorilla/mux \\
-    && go get github.com/stretchr/testify/assert \\
-    && goop install
-'''
-          sh 'echo "hello world!"'
+go get github.com/github-release/github-release'''
+          sh '''cp /app/artifact.tar.gz .
+ls'''
         }
 
       }
