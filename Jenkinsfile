@@ -28,30 +28,7 @@ go build'''
 
       }
     }
-
-    stage('Sonar Qube') {
-      agent {
-        docker {
-          image 'sonarsource/sonar-scanner-cli'
-          args '--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"'
-        }
-
-      }
-      steps {
-        sh '''pwd
-ls cidr_convert_api/go/'''
-        dir(path: 'cidr_convert_api/go/') {
-          withCredentials(bindings: [string(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
-            sh '''pwd
-                ls'''
-            sh 'sonar-scanner   -Dsonar.projectKey=newjenkins   -Dsonar.sources=.   -Dsonar.host.url=http://albertoefg1c.mylabserver.com   -Dsonar.login=$TOKEN'
-          }
-
-        }
-
-      }
-    }
-
+    
     stage('Tests') {
       agent {
         docker {
@@ -83,6 +60,31 @@ go get github.com/karmakaze/goop \\
       }
     }
 
+
+    stage('Sonar Qube') {
+      agent {
+        docker {
+          image 'sonarsource/sonar-scanner-cli'
+          args '--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"'
+        }
+
+      }
+      steps {
+        sh '''pwd
+ls cidr_convert_api/go/'''
+        dir(path: 'cidr_convert_api/go/') {
+          withCredentials(bindings: [string(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
+            sh '''pwd
+                ls'''
+            sh 'sonar-scanner   -Dsonar.projectKey=newjenkins   -Dsonar.sources=.   -Dsonar.host.url=http://albertoefg1c.mylabserver.com   -Dsonar.login=$TOKEN'
+          }
+
+        }
+
+      }
+    }
+
+    
     stage('Deploy') {
       agent {
         docker {
