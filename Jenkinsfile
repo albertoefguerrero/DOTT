@@ -35,7 +35,7 @@ go build'''
     stage('Sonar Qube') {
       agent {
         docker { image 'sonarsource/sonar-scanner-cli'        
-                args '--network host -e SONAR_HOST_URL="http://albertoefg2c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"'        
+                args '--network host
        }
       }
       steps {
@@ -47,7 +47,7 @@ ls cidr_convert_api/go/'''
           sh '''sonar-scanner \
   -Dsonar.projectKey=newjenkins \
   -Dsonar.sources=. \
-  -Dsonar.host.url=http://18.223.182.245 \
+  -Dsonar.host.url=http://albertoefg2c.mylabserver.com \
   -Dsonar.login="${env.TOKEN}"'''        
        }
       }
