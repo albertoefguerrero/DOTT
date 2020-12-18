@@ -22,12 +22,6 @@ go get github.com/karmakaze/goop \\
 
 go build'''
           catchError(message: 'ERROR: Failed :( ') {
-            sh '''env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o api
-
- '''
-          }
-
-          warnError(message: 'Failed to build :( ') {
             sh '''ls -lah
 go env GOOS GOARCH
 env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o api
