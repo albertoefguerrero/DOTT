@@ -8,7 +8,7 @@ func cidrToMask(value string) string {
 	result := value
 	// If cidr is in range convert
 	cidr, _ := strconv.Atoi(value)
-	if (cidr >= 1 && cidr <= 32) {
+	if (cidr >= 0 && cidr <= 32) {
 		// Int to mask
 		mask := net.CIDRMask(cidr, 32)
 		// Mask to IP address with proper format
