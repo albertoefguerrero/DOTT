@@ -35,22 +35,20 @@ go build'''
     stage('Sonar Qube') {
       agent {
         docker { image 'sonarsource/sonar-scanner-cli'        
-                args '--network host -e SONAR_HOST_URL="http://3.22.117.110/" -e SONAR_LOGIN="${env.TOKEN}"'        
+                args '--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"'        
        }
       }
       steps {
         sh '''pwd
 ls cidr_convert_api/go/'''
-        dir(path: 'cidr_convert_api/go/') {
-          withCredentials([string(credentialsId: 'sonarlogin', variable: 'TOKEN')]){
+        dir(path: 'cidr_convert_api/go/') {        
           sh '''pwd
                 ls'''
           sh '''sonar-scanner \
   -Dsonar.projectKey=newjenkins \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://18.223.182.245 \
-  -Dsonar.login="$TOKEN"'''
-        }
+  -Dsonar.login="${env.TOKEN}"'''        
        }
       }
     }
