@@ -47,17 +47,21 @@ go get github.com/karmakaze/goop \\
     && go get github.com/gorilla/mux \\
     && go get github.com/stretchr/testify/assert \\
     && go get golang.org/x/lint/golint \\
+    && go get github.com/jstemmer/go-junit-report \\
     && goop install
 '''
           warnError(message: 'Failed :( ') {
             sh 'go fmt'
             sh '''golint api.go convert.go convert_test.go
 '''
-            sh 'go test'
+            sh '''go test
+go test -v 2>&1 | go-junit-report > report.xml
+go test -v -bench . -count 5 2>&1 | go-junit-report > report-benchmark.xml'''
             sh '''go test -coverprofile=coverage.out
 cp coverage.out /app'''
           }
 
+          junit(testResults: '*.xml', allowEmptyResults: true)
         }
 
       }
