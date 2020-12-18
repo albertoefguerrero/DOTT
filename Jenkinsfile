@@ -28,8 +28,8 @@ ls -lah
  '''
           }
 
-          sh '''ls
-tar -cvzf artifact.tar.gz api api.go convert.go go.mod go.sum
+          sh '''cd ../
+tar -cvzf artifact.tar.gz go
 cp artifact.tar.gz /app
 ls'''
         }
