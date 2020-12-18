@@ -32,10 +32,11 @@ go build'''
     stage('Sonar Qube') {
       agent {
         docker {
+          withCredentials([string(credentialsId: 'sonarlogin', variable: 'TOKEN')]){
           image 'sonarsource/sonar-scanner-cli'
-          args '--network host -e SONAR_HOST_URL="http://3.22.117.110/" -e SONAR_LOGIN="99a7536d3c88fc79e7f1dd189f99b4cf59926cc6" '
+          args '--network host -e SONAR_HOST_URL="http://3.22.117.110/" -e SONAR_LOGIN="$TOKEN" '
         }
-
+       }
       }
       steps {
         sh '''pwd
