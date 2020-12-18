@@ -125,13 +125,13 @@ echo "Exporting token to enable github-release tool"
 export GITHUB_TOKEN=$GTOKEN
 
 echo "Deleting release from github before creating new one"
-echo github-release delete --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER}
+github-release delete --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER}
 
 echo "Creating a new release in github"
-echo github-release release --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "api-${BUILD_NUMBER}"
+github-release release --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "api-${BUILD_NUMBER}"
 
 echo "Uploading the artifacts into github"
-echo github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "${PROJECT_NAME}-${BUILD_NUMBER}.tar.gz" --file artifacts.tar.gz'''
+github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "${PROJECT_NAME}-${BUILD_NUMBER}.tar.gz" --file artifacts.tar.gz'''
         }
        }
       }
@@ -142,5 +142,6 @@ echo github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${B
     TOKEN = credentials('sonarlogin')
     GITHUB_USER = 'albertoefguerrero'
     GITHUB_REPO = 'DOTT'
+    PROJECT_NAME = 'go-api'
   }
 }
