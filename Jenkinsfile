@@ -24,7 +24,7 @@ go build'''
           warnError(message: 'Failed to build :( ') {
             sh '''ls -lah
 go env GOOS GOARCH
-go build -ldflags="-extldflags=-static"
+env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o api
 ls -lah
  '''
           }
