@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         dir(path: 'cidr_convert_api/go/') {
-          sh '''ls
+          sh '''ls ~/
 pwd
 apk add --update git
 apk add build-base
@@ -28,7 +28,7 @@ go build'''
 
       }
     }
-    
+
     stage('Tests') {
       agent {
         docker {
@@ -60,7 +60,6 @@ go get github.com/karmakaze/goop \\
       }
     }
 
-
     stage('Sonar Qube') {
       agent {
         docker {
@@ -84,7 +83,6 @@ ls cidr_convert_api/go/'''
       }
     }
 
-    
     stage('Deploy') {
       agent {
         docker {
