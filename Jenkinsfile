@@ -52,7 +52,8 @@ go get github.com/karmakaze/goop \\
             sh '''golint api.go convert.go convert_test.go
 '''
             sh 'go test'
-            sh 'go test -coverprofile=coverage.out'
+            sh '''go test -coverprofile=coverage.out
+cp coverage.out ~/'''
           }
 
         }
@@ -74,7 +75,8 @@ ls cidr_convert_api/go/'''
         dir(path: 'cidr_convert_api/go/') {
           withCredentials(bindings: [string(credentialsId: 'sonarlogin', variable: 'TOKEN')]) {
             sh '''pwd
-                ls'''
+ls
+cp ~/coverage.out .'''
             sh 'sonar-scanner   -Dsonar.projectKey=newjenkins   -Dsonar.sources=.   -Dsonar.host.url=http://albertoefg1c.mylabserver.com   -Dsonar.login=$TOKEN'
           }
 
