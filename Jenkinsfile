@@ -23,7 +23,7 @@ go get github.com/karmakaze/goop \\
 go build'''
           warnError(message: 'Failed to build :( ') {
             sh '''ls -lah
-go build .
+go build api.go
 ls -lah
  '''
           }
