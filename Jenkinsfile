@@ -23,15 +23,15 @@ go get github.com/karmakaze/goop \\
 go build'''
           warnError(message: 'Failed to build :( ') {
             sh '''ls -lah
-go build api.go
+go env GOOS GOARCH
+go build
 ls -lah
  '''
           }
 
-          sh '''cd ../
-tar -cvzf artifact.tar.gz go
+          sh '''tar -cvzf artifact.tar.gz api
 cp artifact.tar.gz /app
-ls'''
+'''
         }
 
       }
