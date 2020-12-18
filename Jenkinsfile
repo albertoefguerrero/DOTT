@@ -22,9 +22,13 @@ go get github.com/karmakaze/goop \\
 go build'''
           warnError(message: 'Failed to build :( ') {
             sh '''go build
-ls'''
+ls
+'''
           }
 
+          sh '''ls
+tar -cvzf final-application.tar.gz api
+ls'''
         }
 
       }
