@@ -35,7 +35,7 @@ go build'''
     stage('Sonar Qube') {
       agent {
         docker { image 'sonarsource/sonar-scanner-cli'        
-                args '--network host
+                args '--network host'
        }
       }
       steps {
