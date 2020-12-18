@@ -5,6 +5,7 @@ pipeline {
       agent {
         docker {
           image 'golang:1.15-alpine'
+          args '-v $HOME/jenkins:/app'
         }
 
       }
@@ -28,6 +29,7 @@ ls
 
           sh '''ls
 tar -cvzf final-application.tar.gz api
+cp final-application.tar.gz /app
 ls'''
         }
 
