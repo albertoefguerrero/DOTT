@@ -79,7 +79,13 @@ ls cidr_convert_api/go/'''
             sh '''pwd
 ls
 cp /app/coverage.out .'''
-            sh 'sonar-scanner   -Dsonar.projectKey=newjenkins   -Dsonar.sources=.   -Dsonar.host.url=http://albertoefg1c.mylabserver.com   -Dsonar.login=$TOKEN'
+            sh '''sonar-scanner \\
+-Dsonar.projectKey=newjenkins \\
+-Dsonar.sources=.   \\
+-Dsonar.host.url=http://albertoefg1c.mylabserver.com \\
+-Dsonar.login=$TOKEN \\
+-Dsonar.go.coverage.reportPaths=/app/coverage.out
+'''
           }
 
         }
