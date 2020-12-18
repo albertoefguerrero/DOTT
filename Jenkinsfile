@@ -33,7 +33,7 @@ go build'''
       agent {
         docker {
           image 'golang:1.15-alpine'
-          args 'args \'-v $HOME/jenkins:/app\''
+          args '-v $HOME/jenkins:/app'
         }
 
       }
@@ -67,7 +67,7 @@ cp coverage.out /app'''
         docker {
           image 'sonarsource/sonar-scanner-cli'
           args '''--network host -e SONAR_HOST_URL="http://albertoefg1c.mylabserver.com" -e SONAR_LOGIN="${env.TOKEN}"
-args \'-v $HOME/jenkins:/app\''''
+-v $HOME/jenkins:/app'''
         }
 
       }
