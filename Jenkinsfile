@@ -118,7 +118,8 @@ cp /app/coverage.out .'''
 go get github.com/github-release/github-release'''
           sh '''cp /app/artifact.tar.gz .
 ls
-echo "${VERSION_NAME}"'''
+'''
+          sh 'echo ${VERSION_NAME}'
         }
 
       }
