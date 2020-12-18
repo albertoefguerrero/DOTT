@@ -115,25 +115,27 @@ cp /app/coverage.out .'''
       steps {
         dir(path: 'cidr_convert_api/go/') {
           withCredentials(bindings: [string(credentialsId: 'github-token', variable: 'GTOKEN')]) {
-          sh '''apk add --update git
+            sh '''apk add --update git
 go get github.com/github-release/github-release'''
-          sh '''cp /app/artifact.tar.gz .
+            sh '''cp /app/artifact.tar.gz .
 ls
 '''
-          sh '''echo ${BUILD_NUMBER} and $BUILD_NUMBER 
+            sh '''echo ${BUILD_NUMBER} and $BUILD_NUMBER 
 echo "Exporting token to enable github-release tool"
 export GITHUB_TOKEN=$GTOKEN
 
-echo "Deleting release from github before creating new one"
-github-release delete --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER}
+#echo "Deleting release from github before creating new one"
+#github-release delete --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER}
 
 echo "Creating a new release in github"
 github-release release --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "api-${BUILD_NUMBER}"
 
 echo "Uploading the artifacts into github"
 github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "${PROJECT_NAME}-${BUILD_NUMBER}.tar.gz" --file artifacts.tar.gz'''
+          }
+
         }
-       }
+
       }
     }
 
