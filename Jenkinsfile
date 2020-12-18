@@ -131,7 +131,7 @@ echo "Creating a new release in github"
 github-release release --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "api-${BUILD_NUMBER}"
 
 echo "Uploading the artifacts into github"
-github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "${PROJECT_NAME}-${BUILD_NUMBER}.tar.gz" --file artifacts.tar.gz'''
+github-release upload --user ${GITHUB_USER} --repo ${GITHUB_REPO} --tag ${BUILD_NUMBER} --name "${PROJECT_NAME}-${BUILD_NUMBER}.tar.gz" --file artifact.tar.gz'''
           }
 
         }
