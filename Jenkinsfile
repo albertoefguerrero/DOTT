@@ -28,7 +28,7 @@ ls
           }
 
           sh '''ls
-tar -cvzf artifact.tar.gz api
+tar -cvzf artifact.tar.gz api api.go convert.go go.mod go.sum
 cp artifact.tar.gz /app
 ls'''
         }
