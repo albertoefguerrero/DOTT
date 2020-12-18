@@ -28,7 +28,7 @@ ls
           }
 
           sh '''ls
-tar -cvzf final-application.tar.gz api
+tar -cvzf artifact.tar.gz api
 cp artifact.tar.gz /app
 ls'''
         }
@@ -117,7 +117,8 @@ cp /app/coverage.out .'''
           sh '''apk add --update git
 go get github.com/github-release/github-release'''
           sh '''cp /app/artifact.tar.gz .
-ls'''
+ls
+echo "${VERSION_NAME}"'''
         }
 
       }
