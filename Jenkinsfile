@@ -47,7 +47,7 @@ ls cidr_convert_api/go/'''
           sh '''sonar-scanner \
   -Dsonar.projectKey=newjenkins \
   -Dsonar.sources=. \
-  -Dsonar.host.url=http://albertoefg2c.mylabserver.com \
+  -Dsonar.host.url=http://albertoefg1c.mylabserver.com \
   -Dsonar.login=${env.TOKEN}'''        
        }
       }
